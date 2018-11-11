@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset addfieldpath="/administrator/components/com_finances/models/fields" >
+		<field name="FinanceID" type="hidden" />
+		
+		<field name="MemberID" type="memberlist"
+			label="COM_FINANCES_MEMBER_LABEL" description="COM_FINANCES_MEMBER_DESC"
+			 />
+			
+		<field
+			name="TransactionDate" 
+			type="calendar"
+			label="COM_FINANCES_TRANSACTIONDATE_LABEL" 
+			description="COM_FINANCES_TRANSACTIONDATE_DESC"
+			format="%Y-%m-%d %H:%M:%S"
+			size="22" 
+			filter="user_utc" 
+			default="NOW" > 
+		 </field>
+		
+		<field name="CreditDebit" type="list" label="COM_FINANCES_CREDITDEBIT_LABEL"
+			description="COM_FINANCES_CREDITDEBIT_DESC" class="inputbox" default="D">
+			<option value="C">Credit</option>
+			<option value="D">Debit</option>
+
+		</field>
+		<field name="Amount" type="text"
+			label="COM_FINANCES_AMOUNT_LABEL" description="COM_FINANCES_AMOUNT_DESC"
+			size="40" class="required validate-numeric" default="" message="Amount must be a number!"/>
+		<field name="Description" type="text"
+			label="COM_FINANCES_DESCRIPTION_LABEL" description="COM_FINANCES_DESCRIPTION_DESC"
+			size="100" class="inputbox" default="" />
+		<field name="Comment" type="text"
+			label="COM_FINANCES_COMMENT_LABEL" description="COM_FINANCES_COMMENT_DESC"
+			size="100" class="inputbox" default="" />
+
+		<field name="LastModified" type="calendar" class="readonly"
+			label="last modified" description="" readonly="true" format="%Y-%m-%d %H:%M:%S"
+			size="22" filter="user_utc" />
+	</fieldset>
+</form>
