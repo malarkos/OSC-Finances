@@ -30,10 +30,40 @@
 		<field name="Description" type="text"
 			label="COM_FINANCES_DESCRIPTION_LABEL" description="COM_FINANCES_DESCRIPTION_DESC"
 			size="100" class="inputbox" default="" />
-		<field name="Comment" type="text"
-			label="COM_FINANCES_COMMENT_LABEL" description="COM_FINANCES_COMMENT_DESC"
-			size="100" class="inputbox" default="" />
+		<field
+				name="FinanceYear"
+				type="list"
+				label="COM_FINANCES_FINANCEYEAR_LABEL"
+				description="COM_FINANCES_FINANCEYEAR_DESC"
+				class="inputbox"
+				default="2018"
+				>
+			 <option value="2016" >2016</option>
+		  	 <option value="2017" >2017</option>
+		  	 <option value="2018" >2018</option>
+		  	 <option value="2019" >2019</option>
+		  	 <option value="2020" >2020</option>
+		  	 
 
+		</field>
+		<field
+				name="FinanceType"
+				type="list"
+				label="COM_FINANCES_FINANCETYPE_LABEL"
+				description="COM_FINANCES_FINANCETYPE_DESC"
+				class="inputbox"
+				default="o"
+				>
+			 <option value="s" >Subscriptions</option>
+		  	 <option value="b" >Bookings</option>
+		  	 <option value="o" >Other</option>
+		  	 
+
+		</field>
+		<field name="BookingReference" type="text"
+			label="COM_FINANCES_BOOKINGREFERENCE_LABEL" description="COM_FINANCES_BOOKINGREFERENCE_DESC"
+			size="100" class="inputbox" default="" />
+			
 		<field name="LastModified" type="calendar" class="readonly"
 			label="last modified" description="" readonly="true" format="%Y-%m-%d %H:%M:%S"
 			size="22" filter="user_utc" />
