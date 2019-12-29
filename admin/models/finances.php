@@ -60,7 +60,7 @@ class FinancesModelFinances extends JModelList
 		$member = $app->getUserStateFromRequest($this->context . 'filter.member', 'filter_member', '', 'string');
 		$this->setState('filter.member', $member);
 		
-		parent::populateState('f.TransactionDate', 'asc');
+		parent::populateState('f.TransactionDate', 'DESC');
 	}
         
 	/**
@@ -114,8 +114,8 @@ class FinancesModelFinances extends JModelList
  
 		$query->order($db->escape($orderCol) . ' ' . $db->escape($orderDirn));
 		
-		//$query = $this->limit($query, 20, 0);
-		
+		//$query->setLimit('20');
+		//JFactory::getApplication()->enqueueMessage('Query ='.$query);
  
 		return $query;
 	}
