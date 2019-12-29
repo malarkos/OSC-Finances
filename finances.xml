@@ -3,14 +3,14 @@
  
 	<name>COM_FINANCES</name>
 	<!-- The following elements are optional and free of formatting constraints -->
-	<creationDate>11 Nov 2018</creationDate>
+	<creationDate>29 Dec 2019</creationDate>
 	<author>Geoff Markley</author>
 	<authorEmail>geoffm@labyrinth.net.au</authorEmail>
 	<authorUrl>http://www.ormondskiclub.com.au</authorUrl>
 	<copyright>Copyright Info</copyright>
 	<license>License Info</license>
 	<!--  The version string is recorded in the components table -->
-	<version>1.3.6</version>
+	<version>1.3.7</version>
 	<!-- The description is optional and defaults to the name -->
 	<description>COM_FINANCES_DESCRIPTION</description>
  
