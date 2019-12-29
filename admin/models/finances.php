@@ -133,4 +133,31 @@ class FinancesModelFinances extends JModelList
 		// return array
 		
 	}
+	
+	public function getMemberDetails(){
+	    
+	    
+	    
+	    // if there is a member, return the membername
+	    $member = $this->getState('filter.member');
+	    if (is_numeric($member) && $member > 0)
+	    {
+	        $db    = JFactory::getDbo();
+	        $query = $db->getQuery(true);
+	        // Create the base select statement.
+	        $query->select('concat(MemberFirstname,\' \',MemberSurname) as membername');
+	        $query->from('members');  // use new osclockers table
+	        $query->where('MemberID = '.(int) $member);
+	        
+	        $db->setQuery ( $query );
+	        $memberdetails = $db->loadResult();
+	        
+	        return ($memberdetails);
+	        
+	    }
+	}
+	
+	public function getCurrentBalance() {
+	    return 0;
+	}
 }

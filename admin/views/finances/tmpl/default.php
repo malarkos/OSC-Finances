@@ -8,12 +8,12 @@
  */
 
 // No direct access to this file
-defined ( '_JEXEC' ) or die ( 'Restricted Access' );
-JHtml::_ ( 'formbehavior.chosen', 'select' );
+defined('_JEXEC') or die('Restricted Access');
+JHtml::_('formbehavior.chosen', 'select');
 
-$listOrder = $this->escape ( $this->filter_order );
-$listDirn = $this->escape ( $this->filter_order_Dir );
-$total=0;
+$listOrder = $this->escape($this->filter_order);
+$listDirn = $this->escape($this->filter_order_Dir);
+$total = 0;
 ?>
 <form action="index.php?option=com_finances&view=finances" method="post"
 	id="adminForm" name="adminForm">
@@ -21,10 +21,15 @@ $total=0;
 		<div class="span6">
 			<?php echo JText::_('COM_FINANCES_FILTER'); ?>
 			<?php
-				echo JLayoutHelper::render ( 'joomla.searchtools.default', array ('view' => $this ));
-			?>
+echo JLayoutHelper::render('joomla.searchtools.default', array(
+    'view' => $this
+));
+?>
 		</div>
 	</div>
+	
+	<h2>Finances for: <?php echo $this->memberdetails; ?> </h2>
+	Current balance: $<?php echo $this->currentbalance; ?>
 	<table class="table table-striped table-hover">
 		<thead>
 			<tr>
@@ -33,6 +38,8 @@ $total=0;
 				<?php echo JHtml::_('grid.checkall'); ?>
 			
 			
+				
+				
 				
 				<th width="20%">
 				<?php echo JText::_('COM_FINANCES_MEMBER') ;?>
@@ -69,11 +76,11 @@ $total=0;
 		<?php $totalamount=0;?>
 			<?php if (!empty($this->items)) : ?>
 				<?php
-				
-foreach ( $this->items as $i => $row ) :
-					$link = JRoute::_ ( 'index.php?option=com_finances&task=financeentry.edit&FinanceID=' . $row->FinanceID  );
-					//$link = JRoute::_ ( 'index.php?option=com_finances&task=financeentry.edit&FinanceID=' . $row->id . '&memid=' . $row->MemberID );
-					?>
+
+    foreach ($this->items as $i => $row) :
+        $link = JRoute::_('index.php?option=com_finances&task=financeentry.edit&FinanceID=' . $row->FinanceID);
+        // $link = JRoute::_ ( 'index.php?option=com_finances&task=financeentry.edit&FinanceID=' . $row->id . '&memid=' . $row->MemberID );
+        ?>
  
 					<tr>
 				<td><?php echo $this->pagination->getRowOffset($i); ?></td>
@@ -97,11 +104,9 @@ foreach ( $this->items as $i => $row ) :
 						</td>
 
 
-				<td>
-					<a href="<?php echo $link; ?>">
+				<td><a href="<?php echo $link; ?>">
                                $<?php echo $row->Amount; $total += $row->Amount;?>
-                           </a>
-						</td>
+                           </a></td>
 				<td>
                                                        $<?php $totalamount = money_format('%.2n', $total); /*sprintf("%04.2f",$total); */ echo $totalamount;?>
                                                        </td>

@@ -32,6 +32,8 @@ class FinancesViewFinances extends JViewLegacy
 		
 		// Get data from the model
 		$this->items		= $this->get('Items');
+		$this->memberdetails = $this->get('MemberDetails');
+		$this->currentbalance = $this->get('CurrentBalance');
 		$this->pagination	= $this->get('Pagination');
 		$this->state			= $this->get('State');
 		$this->filter_order 	= $app->getUserStateFromRequest($context.'filter_order', 'filter_order', 'LockerNumber', 'cmd');
