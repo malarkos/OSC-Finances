@@ -94,7 +94,7 @@ class FinancesModelFinanceEntry extends JModelAdmin
 		$table->AmountNoGST = $table->Amount * 10 /11; // set no GST amount
 		$table->GST = $table->Amount / 11; // set GST
 		// values need to be negative if a Debit
-		if ($table->CreditDebit === "D") {
+		if ($table->CreditDebit === "D" && $table->Amount > 0) { // only check if not already negative
 			$table->Amount = $table->Amount * -1;
 			$table->AmountNoGST = $table->AmountNoGST * -1;
 			$table->GST = $table->GST * -1;

@@ -113,6 +113,9 @@ class FinancesModelFinances extends JModelList
 		$orderDirn 	= $this->state->get('list.direction','asc');
  
 		$query->order($db->escape($orderCol) . ' ' . $db->escape($orderDirn));
+		
+		//$query = $this->limit($query, 20, 0);
+		
  
 		return $query;
 	}
@@ -158,6 +161,25 @@ class FinancesModelFinances extends JModelList
 	}
 	
 	public function getCurrentBalance() {
-	    return 0;
+	    
+	    $member = $this->getState('filter.member');
+	    if (is_numeric($member) && $member > 0)
+	    {
+	        $db    = JFactory::getDbo();
+	        $query = $db->getQuery(true);
+	        // Create the base select statement.
+	        $query->select('sum(Amount) as currentbalance');
+	        $query->from('finances');  // use new osclockers table
+	        $query->where('MemberID = '.(int) $member);
+	        
+	        $db->setQuery ( $query );
+	        $currentbalance = $db->loadResult();
+	        
+	        return ($currentbalance);
+	        
+	    } else  // Invalid entry, return 0
+	    {
+	       return 0;
+	    }
 	}
 }
